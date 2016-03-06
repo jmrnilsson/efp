@@ -31,7 +31,8 @@ namespace ConsoleApp
                 }
                 var count = db.SaveChanges();
                 var duration = (DateTime.UtcNow - start).TotalMilliseconds;
-                Console.WriteLine("{0} records saved to database in {1} at {2} ms per record", count, duration, duration/count);
+                var msg = "{0} records saved to database in {1} at {2} ms per record";
+                Console.WriteLine(msg, count, duration, duration/count);
             }
         }
     }
