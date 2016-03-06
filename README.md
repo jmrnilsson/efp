@@ -12,6 +12,8 @@
 
 ## 02 
 
+    dnvm install 1.0.0-rc1-final -r coreclr
+    dnu restore
     dnu build --quiet
 
 + https://docs.efproject.net/en/latest/platforms/coreclr/getting-started-osx.html
