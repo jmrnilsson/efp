@@ -6,3 +6,4 @@
     dnvm use 1.0.0-rc2-16551 -r coreclr
     dnx run
     
+https://github.com/dotnet/coreclr/blob/master/Documentation/install/get-dotnetcore-dnx-osx.md
