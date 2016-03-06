@@ -1,5 +1,7 @@
 using System;
 using System.Linq;
+using System.Collections.Generic;
+using Microsoft.Data.Entity;
 
 namespace ConsoleApp
 {
@@ -7,38 +9,29 @@ namespace ConsoleApp
     {
         public static void Main()
         {
-            var random = new Random();
             using (var db = new BloggingContext())
             {
-                new string[]
+                db.Blogs.RemoveRange(db.Blogs);
+                db.Posts.RemoveRange(db.Posts);
+                db.SaveChanges();
+                var start = DateTime.UtcNow;
+                foreach (var index in Enumerable.Range(0, 100))
                 {
-                    "http://blogs.msdn.com/adonet",
-                    "http://microsoft.com",
-                    "https://github.com/dotnet/coreclr",
-                    "https://github.com/aspnet/"
-                }.ToList().ForEach(url => db.Blogs.Add(new Blog
-                {
-                    Url = url,
-                    Posts = Enumerable.Range(1, random.Next(1, 4)).Select(r => new Post
+                    var blog = new Blog();
+                    blog.Url = Guid.NewGuid().ToString();
+                    blog.Posts = new List<Post>();
+                    foreach (var indexPost in Enumerable.Range(0, index % 20))
                     {
-                        Title = "Title" + random.Next(0, 999),
-                        Content = "Content" + random.Next(0, 999)
-                    }).ToList()
-                }));
-                var count = db.SaveChanges();
-
-                Console.WriteLine("{0} records saved to database", count);
-                Console.WriteLine("All blogs in database:");
-
-                var blogs =
-                    from b in db.Blogs
-                    where b.Posts.Any()
-                    select new {b.Url, b.Posts.First().Title};
-
-                foreach (var blog in blogs)
-                {
-                    Console.WriteLine(string.Format("{0} - {1}", blog.Url, blog.Title));
+                        var post = new Post();
+                        post.Title = Guid.NewGuid().ToString();
+                        post.Content = Guid.NewGuid().ToString();
+                        blog.Posts.Add(post);
+                    }
+                    db.Blogs.Add(blog);
                 }
+                var count = db.SaveChanges();
+                var duration = (DateTime.UtcNow - start).TotalMilliseconds;
+                Console.WriteLine("{0} records saved to database in {1} at {2} ms per record", count, duration, duration/count);
             }
         }
     }
