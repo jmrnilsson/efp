@@ -21,3 +21,4 @@
 + https://docs.efproject.net/en/latest/platforms/coreclr/getting-started-osx.html
 + http://docs.asp.net/en/latest/dnx/commands.html
 + https://msdn.microsoft.com/en-us/magazine/dn890367.aspx
++ http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
