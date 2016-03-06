@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace ConsoleApp
 {
@@ -14,7 +15,15 @@ namespace ConsoleApp
 
                 Console.WriteLine();
                 Console.WriteLine("All blogs in database:");
-                foreach (var blog in db.Blogs)
+
+                var evenBlogs =
+                    from b in db.Blogs
+                    where b.BlogId % 2 == 0
+                    select b;
+
+
+                Console.WriteLine("Blogs with even blog_ids");
+                foreach (var blog in evenBlogs)
                 {
                     Console.WriteLine(String.Join(", ", blog.Url, blog.BlogId, blog.Name, blog.Posts));
                 }
