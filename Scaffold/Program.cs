@@ -35,10 +35,9 @@ namespace Scaffold
 
                 const double kμ = 0.001;
                 Console.WriteLine();
-                Console.WriteLine("{0} records read in {1:N0} μs", items.Count(), (read - interpret) * kμ);
-                Console.WriteLine("Average {0:N0} μs per record", (read - interpret) * kμ / items.Count());
-                Console.WriteLine("Expression interpretation in {0:N0} μs", interpret * kμ);
-                Console.WriteLine("In-memory scan in {0:N0} μs", (scan - read) * kμ);
+                Console.WriteLine("Read {0} records in {1:N0} μs", items.Count(), (read - interpret) * kμ);
+                Console.WriteLine("Assigned expression in {0:N0} μs", interpret * kμ);
+                Console.WriteLine("Scan in {0:N0} μs", (scan - read) * kμ);
                 Console.WriteLine("Enumerate next in {0:N0} μs", (stopWatch.ElapsedTicks - scan) * kμ);
                 Console.WriteLine("Total time was {0:N0} μs", stopWatch.ElapsedTicks * kμ);
             }
