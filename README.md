@@ -35,6 +35,9 @@
     dnx ef dbcontext scaffold Filename=$(realpath blog.db) EntityFramework.Sqlite
     dnu build --quiet
     dnx run
+    dnu publish --no-source --out ./bin
+    
 
 + http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
 + http://docs.asp.net/en/latest/dnx/projects.html
++ https://github.com/aspnet/Home/issues/590
