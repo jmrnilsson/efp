@@ -33,7 +33,11 @@
     rm __EFMigrationsHistory.cs 
     rm blogContext.cs 
     rm Post.cs 
+    rm -rf bin
+    rm Models.cs 
+    rm Program.cs 
     dnx ef dbcontext scaffold Filename=$blogsdb EntityFramework.Sqlite
+
 or 
 
     dnx ef dbcontext scaffold Filename=/Users/*/*/efp/03-scaffold/blogs.db EntityFramework.Sqlite
