@@ -34,6 +34,8 @@
     rm blogContext.cs 
     rm Post.cs 
     dnx ef dbcontext scaffold Filename=$blogsdb EntityFramework.Sqlite
-    dnx ef dbcontext scaffold "Filename=/Users/*/*/efp/03-scaffold/blog.db" EntityFramework.Sqlite
+or 
+
+    dnx ef dbcontext scaffold Filename=/Users/*/*/efp/03-scaffold/blogs.db EntityFramework.Sqlite
 
 + http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
