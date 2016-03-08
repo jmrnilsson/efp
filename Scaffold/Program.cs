@@ -25,7 +25,9 @@ namespace Scaffold
                 long read = stopWatch.ElapsedTicks;
                 var filtered = items.Where(i => i.Url == "768aea71-c405-4808-b1e6-150692142875").ToList();
                 long scan = stopWatch.ElapsedTicks;
-                var first = filtered.First();
+                var firstable = filtered.First();
+                long first = stopWatch.ElapsedTicks;
+                var five = filtered[5];
                 stopWatch.Stop();
 
                 foreach(var item in filtered)
@@ -38,7 +40,8 @@ namespace Scaffold
                 Console.WriteLine("Read {0} records in {1:N0} μs", items.Count(), (read - interpret) * kμ);
                 Console.WriteLine("Assigned expression in {0:N0} μs", interpret * kμ);
                 Console.WriteLine("Scan in {0:N0} μs", (scan - read) * kμ);
-                Console.WriteLine("Enumerate next in {0:N0} μs", (stopWatch.ElapsedTicks - scan) * kμ);
+                Console.WriteLine("Enumerate next in {0:N0} μs", (first - scan) * kμ);
+                Console.WriteLine("Index 5 in {0:N2} μs", (stopWatch.ElapsedTicks - first) * kμ);
                 Console.WriteLine("Total time was {0:N0} μs", stopWatch.ElapsedTicks * kμ);
             }
         }
