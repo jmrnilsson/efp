@@ -1,13 +1,13 @@
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
 
-namespace 03-scaffold
+namespace 03_scaffold
 {
     public partial class blogContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlite(@"Filename=/Users/martinnilsson/devwork/efp/03-scaffold/blog.db");
+            options.UseSqlite(@"Filename=/Users/martinnilsson/devwork/efp/03_scaffold/blog.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

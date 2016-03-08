@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace 03-scaffold
+namespace 03_scaffold
 {
     public partial class Blog
     {
