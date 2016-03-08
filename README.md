@@ -24,7 +24,7 @@
 + http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
 + http://docs.asp.net/en/latest/dnx/projects.html
 
-## 03 (=Scaffold) - db first
+## 03 - db first (=Scaffold)
 
     cp ../02-sqlite/blog.db ./
     dnu install EntityFramework.Sqlite.Design
