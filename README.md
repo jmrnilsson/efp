@@ -26,6 +26,14 @@
 
 ## 03 
 
+    cp ../02-sqlite/blog.db ./
+    rm blogsContext.cs 
+    db=$(realpath blog.db)
+    echo $db
+    dnx ef dbcontext scaffold Filename=$db EntityFramework.Sqlite
+
+or if some files already scaffolded.. hrmrm..
+
     dnu install EntityFramework.Sqlite.Design
     blogsdb=$(realpath blogs.db)
     rm -rf Migrations
@@ -37,9 +45,5 @@
     rm Models.cs 
     rm Program.cs 
     dnx ef dbcontext scaffold Filename=$blogsdb EntityFramework.Sqlite
-
-or 
-
-    dnx ef dbcontext scaffold Filename=/Users/*/*/efp/03-scaffold/blogs.db EntityFramework.Sqlite
 
 + http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
