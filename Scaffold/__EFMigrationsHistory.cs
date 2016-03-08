@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace c_scaffold
+namespace Scaffold
 {
     public partial class __EFMigrationsHistory
     {
