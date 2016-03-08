@@ -37,8 +37,19 @@
     dnx run
     mkdir pub
     dnu publish --no-source --out ./pub
-    
 
 + http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
 + http://docs.asp.net/en/latest/dnx/projects.html
 + https://github.com/aspnet/Home/issues/590
+
+Example..
+
+    dnx run
+    Starting...
+    
+    Read 950 records in 577643 μs
+    Assigned expression in 533733 μs
+    Scan in 371 μs
+    Enumerate next in 15 μs
+    Index 5 in 0.22 μs
+    Total time was 1111761 μs
