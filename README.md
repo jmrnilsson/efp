@@ -33,5 +33,7 @@
     rm Blog.cs 
     rm Post.cs
     dnx ef dbcontext scaffold Filename=$(realpath blog.db) EntityFramework.Sqlite
+    dnu build --quiet
+    dnx run
 
 + http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
