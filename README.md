@@ -23,3 +23,17 @@
 + https://msdn.microsoft.com/en-us/magazine/dn890367.aspx
 + http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
 + http://docs.asp.net/en/latest/dnx/projects.html
+
+## 03 
+
+    dnu install EntityFramework.Sqlite.Design
+    blogsdb=$(realpath blogs.db)
+    rm -rf Migrations
+    rm Blog.cs 
+    rm __EFMigrationsHistory.cs 
+    rm blogContext.cs 
+    rm Post.cs 
+    dnx ef dbcontext scaffold Filename=$blogsdb EntityFramework.Sqlite
+    dnx ef dbcontext scaffold "Filename=/Users/*/*/efp/03-scaffold/blog.db" EntityFramework.Sqlite
+
++ http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
