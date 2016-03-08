@@ -1,6 +1,6 @@
 # efp
 
-## 01
+## 01 - hello
 
     dnvm list
     dnvm use 1.0.0-rc2-16551 -r mono
@@ -10,7 +10,7 @@
     
 + https://github.com/dotnet/coreclr/blob/master/Documentation/install/get-dotnetcore-dnx-osx.md
 
-## 02 
+## 02 - code first
 
     dnvm install 1.0.0-rc1-final -r coreclr
     dnvm upgrade
@@ -24,7 +24,7 @@
 + http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
 + http://docs.asp.net/en/latest/dnx/projects.html
 
-## 03 (=Scaffold) 
+## 03 (=Scaffold) - db first
 
     cp ../02-sqlite/blog.db ./
     dnu install EntityFramework.Sqlite.Design
