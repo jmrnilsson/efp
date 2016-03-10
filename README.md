@@ -24,12 +24,6 @@
 + http://stackoverflow.com/questions/29300777/is-there-an-entity-framework-7-database-first-poco-generator
 + http://docs.asp.net/en/latest/dnx/projects.html
 
-4 
-dotnet
-
-5
-ml
-
 
 ## 03 - db first (=Scaffold)
 
@@ -60,3 +54,11 @@ Example..
     Enumerate next in 15 μs
     Index 5 in 0.22 μs
     Total time was 1111761 μs
+
+## 4 dotnet
+ml
+
+## 5 electron
+
+## 6 omnisharp
+
