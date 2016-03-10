@@ -56,9 +56,9 @@ Example..
     Total time was 1111761 μs
 
 ## 4 dotnet
-ml
++ http://sethjuarez.com/2010/06/30/what-is-machine-learning/
++ http://numl.net/getting-started/
 
 ## 5 electron
 
 ## 6 omnisharp
-
