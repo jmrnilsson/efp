@@ -56,10 +56,19 @@ Example..
     Index 5 in 0.22 μs
     Total time was 1111761 μs
 
-## 4 dotnet
+## 04 - db first - vanilla
+
+    dnvm use 1.0.0-rc1-update1 -r coreclr
+    cp ../02-sqlite/blog.db ./
+    mv ./Program.cs ./Program.cs_
+    dnx ef dbcontext scaffold Filename=$(realpath blog.db) EntityFramework.Sqlite
+    mv ./Program.cs_ ./Program.cs
+    dnx run
+
+## 5 dotnet
 + http://sethjuarez.com/2010/06/30/what-is-machine-learning/
 + http://numl.net/getting-started/
 
-## 5 electron
+## 6 electron
 
-## 6 omnisharp
+## 7 omnisharp
