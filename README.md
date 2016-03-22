@@ -7,7 +7,7 @@
     dnu restore
     dnvm use 1.0.0-rc2-16551 -r coreclr
     dnx run
-    
+
 + https://github.com/dotnet/coreclr/blob/master/Documentation/install/get-dotnetcore-dnx-osx.md
 
 ## 02 - code first
@@ -29,9 +29,9 @@
 
     cp ../02-sqlite/blog.db ./
     dnu install EntityFramework.Sqlite.Design
-    rm __EFMigrationsHistory.cs 
-    rm blogContext.cs 
-    rm Blog.cs 
+    rm __EFMigrationsHistory.cs
+    rm blogContext.cs
+    rm Blog.cs
     rm Post.cs
     dnx ef dbcontext scaffold Filename=$(realpath blog.db) EntityFramework.Sqlite
     dnu build --quiet
@@ -45,9 +45,12 @@
 
 Example..
 
-    dnx run
+    ### To run
+
+    $ dnvm use 1.0.0-rc1-update1 -r coreclr
+    $ dnx run
     Starting...
-    
+
     Read 950 records in 577643 μs
     Assigned expression in 533733 μs
     Scan in 371 μs
