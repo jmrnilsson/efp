@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Efpad</title>
+    <link rel="stylesheet" type="text/css" href="./app.css">
+  </head>
+  <body>
+    <h3>Console</h3>
+    <textarea name="Text1" cols="60" rows="25">
+from b in db.Blog
+join p in db.Post on b.BlogId equals p.BlogId
+select new {b.Url, p.Title, p.Content};
+    </textarea>
+    <ul>
+        <li>Node: <script>document.write(process.versions.node)</script></li>
+        <li>Chromium: <script>document.write(process.versions.chrome)</script></li>
+        <li>Electron: <script>document.write(process.versions.electron)</script></li>
+    </ul>
+  </body>
+</html>
