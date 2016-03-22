@@ -8,6 +8,11 @@ h3 {
 }
 
 li, textarea {
-    font-size: 8pt;
+    font-size: 7pt;
     font-family: Menlo, Courier New, Courier, monospace;
+}
+
+textarea {
+    color: lawngreen;
+    background-color: black;
 }
