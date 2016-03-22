@@ -45,8 +45,6 @@
 
 Example..
 
-    ### To run
-
     $ dnvm use 1.0.0-rc1-update1 -r coreclr
     $ dnx run
     Starting...
