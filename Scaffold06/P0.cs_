@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using Microsoft.Data.Entity;
 
-namespace Scaffold05
+namespace Scaffold06
 {
     public class Program
     {
@@ -49,4 +49,3 @@ namespace Scaffold05
         }
     }
 }
-    
