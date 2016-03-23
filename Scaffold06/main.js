@@ -43,10 +43,10 @@ ipcMain.on('my-msg', function(event, arg) {
     lines.forEach(line => console.log(line));
     console.log('Saved..');
 
-  fs.writeFile('P0.cs', arg.replace(/\&gt;/g, '>'), (err) => {
+  fs.writeFile('./dotnet/P0.cs', arg.replace(/\&gt;/g, '>'), (err) => {
     if (err) throw err;
         console.log('Execute process..');
-        exec('dnx run', function callback(error, stdout, stderr){
+        exec('(cd dotnet; dnx run)', function callback(error, stdout, stderr){
             if (stderr) {
                 console.log(stderr);
             }

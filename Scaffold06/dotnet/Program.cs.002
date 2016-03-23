@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using Microsoft.Data.Entity;
 
-namespace Scaffold06
+namespace dotnet
 {
     public class Program
     {

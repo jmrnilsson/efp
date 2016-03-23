@@ -12,9 +12,8 @@ name = $(realpath ./db/blog.db)
 .PHONY: clean setup scaffold
 
 scaffold: db/blog.db
-	rm -f ./P0.cs
-	dnx ef dbcontext scaffold Filename=$(name) EntityFramework.Sqlite
-	cp -f ./P0.cs_ ./P0.cs
+	rm -f ./dotnet/P0.cs
+	(cd dotnet; dnx ef dbcontext scaffold Filename=$(realpath ./db/blog.db) EntityFramework.Sqlite)
 
 
 db/blog.db:
@@ -37,7 +36,8 @@ clean:
 
 setup: clean scaffold
 	dnu restore
-	dnu build --quiet
+	cp ./dotnet/Program.cs.001 ./dotnet/P0.cs
+	(cd ./dotnet/; dnu build --quiet)
 	npm install
 	curl -OL https://github.com/dhg/Skeleton/releases/download/2.0.4/Skeleton-2.0.4.zip
 	unzip -o Skeleton-2.0.4.zip -d ./curl/ && rm ./Skeleton-2.0.4.zip

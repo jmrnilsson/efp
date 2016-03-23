@@ -1,7 +1,7 @@
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
 
-namespace Scaffold06
+namespace dotnet
 {
     public partial class blogContext : DbContext
     {

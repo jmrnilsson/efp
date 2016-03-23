@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Scaffold06
+namespace dotnet
 {
     public partial class Post
     {
