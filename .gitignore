@@ -3,3 +3,4 @@
 **/*.db
 **/*.lock.json
 **/node_modules
+Scaffold06/P0.cs
