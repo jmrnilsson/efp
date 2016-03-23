@@ -52,7 +52,7 @@ ipcMain.on('my-msg', function(event, arg) {
             }
             console.log(stderr);
             console.log('Publishing result..');
-            event.sender.send('asynchronous-reply', stdout);
+            event.sender.send('on-result', stdout);
         });
     });
 });

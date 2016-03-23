@@ -1,21 +1,24 @@
 'use strict';
-const ipcRenderer = require('electron').ipcRenderer;
+
+const ipc = require('electron').ipcRenderer;
 const fs = require('fs');
 const ko = require('./curl/knockout-3.4.0.js');
+const Q = require('q');
 
-ipcRenderer.on('asynchronous-reply', function(event, arg) {
+var csscript = ko.observable('');
+var go = () => { ipc.send('my-msg', csscript()); };
+
+Q.nfbind(fs.readFile)('./dotnet/Program.cs.001', 'utf8').then(e => {csscript(e)});
+
+ipc.on('on-result', function(event, arg) {
   console.log(arg);
 });
 
-function callback(sender, arg) {
-    textarea_value = arg;
-}
-
 function QueryModel() {
     var self = this;
-    self.csscript = ko.observable(fs.readFileSync('./dotnet/Program.cs.001'));
-    self.go = function () {
-        ipcRenderer.send('my-msg', self.csscript());
-    }
+    self.go = go
+    self.csscript = csscript;
 }
+
 ko.applyBindings(new QueryModel(), document.getElementsByTagName('body')[0]);
+
