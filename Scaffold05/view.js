@@ -6,3 +6,6 @@ document.getElementsByTagName('input')[0].onclick = function(){
     ipcRenderer.send('my-msg', expression);
 }
 
+ipcRenderer.on('asynchronous-reply', function(event, arg) {
+  console.log(arg);
+});

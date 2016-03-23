@@ -6,6 +6,8 @@ const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 const ipcMain = require('electron').ipcMain;
+const fs = require('fs');
+const exec = require('child_process').exec;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -37,6 +39,15 @@ app.on('activate', function () {
 });
 
 ipcMain.on('my-msg', function(event, arg) {
-  let lines = JSON.stringify(arg).replace(/"/g, '').trim().split('\\n');
-  lines.forEach(line => console.log(line));
+    let lines = JSON.stringify(arg).replace(/"/g, '').trim().split('\\n');
+    // lines.forEach(line => console.log(line));
+    console.log('Saved..');
+
+  fs.writeFile('P0.cs', arg, (err) => {
+    if (err) throw err;
+        console.log('Execute process..');
+        exec('dnx run', function callback(error, stdout, stderr){
+            event.sender.send('asynchronous-reply', stdout);
+        });
+    });
 });
