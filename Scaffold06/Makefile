@@ -24,9 +24,9 @@ db/blog.db:
 
 
 clean:
-	rm -rf ./css
+	rm -rf ./curl
 	rm -rf ./node_modules
-	mkdir ./css
+	mkdir ./curl
 	rm -f __EFMigrationsHistory.cs
 	rm -f blogContext.cs
 	rm -f ModelContext.cs
@@ -40,7 +40,9 @@ setup: clean scaffold
 	dnu build --quiet
 	npm install
 	curl -OL https://github.com/dhg/Skeleton/releases/download/2.0.4/Skeleton-2.0.4.zip
-	unzip -o Skeleton-2.0.4.zip -d ./css/ && rm ./Skeleton-2.0.4.zip
+	unzip -o Skeleton-2.0.4.zip -d ./curl/ && rm ./Skeleton-2.0.4.zip
+	curl -OL http://knockoutjs.com/downloads/knockout-3.4.0.js
+	mv knockout-3.4.0.js ./curl/
 
 
 

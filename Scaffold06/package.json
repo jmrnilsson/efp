@@ -10,8 +10,5 @@
   "devDependencies": {
     "electron-prebuilt": "^0.36.11"
   },
-  "dependencies": {
-    "rivets": "^0.8.1"
-  },
   "author": "jmrnilsson"
 }
