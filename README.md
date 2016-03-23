@@ -61,10 +61,16 @@ Example..
     dnvm use 1.0.0-rc1-update1 -r coreclr
     ./run.sh
 
-## 5 dotnet
+## 05 electron
+
+    dnvm use 1.0.0-rc1-update1 -r coreclr
+    ./run.sh
+
++ http://electron.atom.io/docs/v0.37.2/api/ipc-main/
+
+## x dotnet
 + http://sethjuarez.com/2010/06/30/what-is-machine-learning/
 + http://numl.net/getting-started/
 
-## 6 electron
 
 ## 7 omnisharp
