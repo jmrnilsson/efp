@@ -40,13 +40,18 @@ app.on('activate', function () {
 
 ipcMain.on('my-msg', function(event, arg) {
     let lines = JSON.stringify(arg).replace(/"/g, '').trim().split('\\n');
-    // lines.forEach(line => console.log(line));
+    lines.forEach(line => console.log(line));
     console.log('Saved..');
 
-  fs.writeFile('P0.cs', arg, (err) => {
+  fs.writeFile('P0.cs', arg.replace(/\&gt;/g, '>'), (err) => {
     if (err) throw err;
         console.log('Execute process..');
         exec('dnx run', function callback(error, stdout, stderr){
+            if (stderr) {
+                console.log(stderr);
+            }
+            console.log(stderr);
+            console.log('Publishing result..');
             event.sender.send('asynchronous-reply', stdout);
         });
     });
