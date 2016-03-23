@@ -1,0 +1,17 @@
+{
+  "name": "efpad-poc-2",
+  "version": "0.1.1",
+  "description": "A tiny app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.11"
+  },
+  "dependencies": {
+    "rivets": "^0.8.1"
+  },
+  "author": "jmrnilsson"
+}
