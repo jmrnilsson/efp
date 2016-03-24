@@ -87,6 +87,7 @@ Example..
 + ~~Rivets~~
 + Vue.js
 + https://codemirror.net/
++ eslint
 
 ## x dotnet
 + http://sethjuarez.com/2010/06/30/what-is-machine-learning/
