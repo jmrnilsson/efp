@@ -68,6 +68,21 @@ Example..
 
 + http://electron.atom.io/docs/v0.37.2/api/ipc-main/
 
+## 06 
+
+### Goals: 
++ Binding
++ Code structure
++ Slight clean-up
++ Interop
++ make setup, clean, run, scaffold (temporary) 
+
+### Libs and tools 
++ Skeleton
++ ~~Rivets~~
++ Vue.js
++ https://codemirror.net/
+
 ## x dotnet
 + http://sethjuarez.com/2010/06/30/what-is-machine-learning/
 + http://numl.net/getting-started/
