@@ -2,17 +2,10 @@ body {
     background-color: #F1F1F1;
 }
 
-h3 {
-    font-family: Menlo, Courier New, Courier, monospace;
-    color: grey;
-}
-
-li, textarea {
+textarea {
     font-size: 8pt;
     font-family: Menlo, Courier New, Courier, monospace;
-}
-
-textarea {
     color: lawngreen;
     background-color: black;
+    height: initial; /* Override Skeleton fixed height */
 }

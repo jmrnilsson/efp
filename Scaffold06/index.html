@@ -3,17 +3,33 @@
   <head>
     <meta charset="UTF-8">
     <title>Efpad</title>
+    <link rel="stylesheet" type="text/css" href="./curl/Skeleton-2.0.4/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./curl/Skeleton-2.0.4/css/skeleton.css">
     <link rel="stylesheet" type="text/css" href="./app.css">
   </head>
   <body>
-    <textarea name="Text1" cols="90" rows="30" data-bind="textInput: csscript"></textarea>
     <p>
-    <input type="button" value="Go" data-bind="click: go">
-    <ul>
-        <li>Node: <script>document.write(process.versions.node)</script></li>
-        <li>Chromium: <script>document.write(process.versions.chrome)</script></li>
-        <li>Electron: <script>document.write(process.versions.electron)</script></li>
-    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="three columns"><input type="button" value="Query"></div>
+            <div class="three columns"><input type="button" value="Show"></div>
+            <div class="three columns"><input type="button" value="Time"></div>
+            <div class="three columns"><input type="button" value="Times"></div>
+        </div>
+        <div class="row">
+            <div class="twelwe columns">
+                <textarea name="Text1" cols="90" rows="27" data-bind="textInput: csscript"></textarea>
+                <p>
+                <input type="button" value="Go" data-bind="click: go" class="button-primary">
+                <ul>
+                    <li>Node: <script>document.write(process.versions.node)</script></li>
+                    <li>Chromium: <script>document.write(process.versions.chrome)</script></li>
+                    <li>Electron: <script>document.write(process.versions.electron)</script></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
     <script src="./curl/knockout-3.4.0.js"></script>
     <script src="./view.js"></script>
 

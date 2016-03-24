@@ -1,0 +1,27 @@
+using System;
+using System.Linq;
+using System.Diagnostics;
+using System.Collections.Generic;
+using Microsoft.Data.Entity;
+using System.Linq.Expressions;
+
+namespace dotnet
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            using (var db = new blogContext())
+            {
+                var query =
+                    from b in db.Blog
+                    join p in db.Post on b.BlogId equals p.BlogId
+                    select new {b.Url, p.Title, p.Content};
+
+                var results = query.Select(q => q.Content).Take(7).ToList();
+
+                results.ForEach(r => Console.WriteLine(r));
+            }
+        }
+    }
+}

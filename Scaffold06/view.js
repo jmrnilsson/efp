@@ -6,9 +6,9 @@ const ko = require('./curl/knockout-3.4.0.js');
 const Q = require('q');
 
 var csscript = ko.observable('');
-var go = () => { ipc.send('my-msg', csscript()); };
+var go = () => { ipc.send('go', csscript()); };
 
-Q.nfbind(fs.readFile)('./dotnet/Program.cs.001', 'utf8').then(e => {csscript(e)});
+Q.nfbind(fs.readFile)('./dotnet/Program.cs.003', 'utf8').then(e => {csscript(e)});
 
 ipc.on('on-result', function(event, arg) {
   console.log(arg);

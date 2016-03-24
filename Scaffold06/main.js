@@ -1,26 +1,20 @@
 'use strict';
 
 const electron = require('electron');
-// Module to control application life.
 const app = electron.app;
-// Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 const ipcMain = require('electron').ipcMain;
 const fs = require('fs');
 const exec = require('child_process').exec;
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
 function createWindow () {
-    mainWindow = new BrowserWindow({width: 1200, height: 600});
+    mainWindow = new BrowserWindow({width: 1200, height: 800});
     mainWindow.loadURL('file://' + __dirname + '/index.html');
     mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function() {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows.
     mainWindow = null;
   });
 }
@@ -38,12 +32,12 @@ app.on('activate', function () {
     }
 });
 
-ipcMain.on('my-msg', function(event, arg) {
+ipcMain.on('go', function(event, arg) {
     let lines = JSON.stringify(arg).replace(/"/g, '').trim().split('\\n');
     lines.forEach(line => console.log(line));
     console.log('Saved..');
 
-  fs.writeFile('./dotnet/P0.cs', arg.replace(/\&gt;/g, '>'), (err) => {
+    fs.writeFile('./dotnet/P0.cs', arg.replace(/\&gt;/g, '>'), (err) => {
     if (err) throw err;
         console.log('Execute process..');
         exec('(cd dotnet; dnx run)', function callback(error, stdout, stderr){
