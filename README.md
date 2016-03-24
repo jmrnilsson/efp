@@ -80,6 +80,7 @@ Example..
 + Slight clean-up
 + Interop
 + make setup, clean, run, scaffold (temporary) 
++ curl (or wget or git clone) unmanaged external dependencies
 
 ### Libs and tools 
 + Skeleton
