@@ -4,42 +4,62 @@
     <meta charset="UTF-8">
     <title>Efpad</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./curl/font-awesome-4.5.0/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="./curl/Skeleton-2.0.4/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./curl/Skeleton-2.0.4/css/skeleton.css">
     <link rel="stylesheet" href="./node_modules/codemirror/lib/codemirror.css">
     <link rel="stylesheet" type="text/css" href="./app.css">
   </head>
   <body>
-    <p>
-    <div class="container">
-        <div class="row">
-            <div class="three columns"><input type="button" value="Query"></div>
-            <div class="three columns"><input type="button" value="Show"></div>
-            <div class="three columns"><input type="button" value="Time"></div>
-            <div class="three columns"><input type="button" value="Times"></div>
-        </div>
-        <div class="row">
-            <div class="twelwe columns" id="code">
-                <!-- <textarea name="Text1" cols="90" rows="27" data-bind="textInput: csscript"></textarea> -->
-                <textarea name="Text1"></textarea>
-            </div>
-        </div>
-        <div class="row">
-            <div class="two columns">
-                <input type="button" value="Go" data-bind="click: go" class="button-primary">
-            </div>
-            <div class="ten columns">
-                <ul>
-                    <li>Node: <script>document.write(process.versions.node)</script></li>
-                    <li>Chromium: <script>document.write(process.versions.chrome)</script></li>
-                    <li>Electron: <script>document.write(process.versions.electron)</script></li>
-                </ul>
-            </div>
-        </div>
+
+
+    <nav class="navbar floating-menu">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a class="navbar-link" href="#intro">Database</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#intro">Query</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#intro">Table</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#intro">Chart</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#intro">SQL</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#intro">IL</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#intro">Expression</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#intro">Timing</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#intro">About</a></li>
+        </ul>
+    </nav>
+
+    <br style="padding-top: 5rem;">
+    <div style="margin: 8rem 3rem 1.5rem 3rem">
+
+        <h5>Code</h5>
+        <input type="button" value="Run" class="button-primary" data-bind="click: runScript">
+        <textarea name="Text1"></textarea>
+
+        <br>
+        <h5>Table</h5>
+        <table>
+            <thead>
+                <th>Head</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        a
+                    </td>
+                <tr>
+            </tbody>
+        </table>
 
     </div>
+
+<!--<button type="button">
+    <span class="fa-stack">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+    </span>
+    Query
+</button>-->
+
     <script src="./curl/knockout-3.4.0.js"></script>
-    <script src="./node_modules/codemirror/lib/codemirror.js"></script>
     <script src="./view.js"></script>
 
   </body>
