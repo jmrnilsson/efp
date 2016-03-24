@@ -70,6 +70,10 @@ Example..
 
 ## 06 
 
+    dnvm use 1.0.0-rc1-update1 -r coreclr
+    make setup
+    make run
+
 ### Goals: 
 + Binding
 + Code structure
