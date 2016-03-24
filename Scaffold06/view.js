@@ -5,10 +5,19 @@ const fs = require('fs');
 const ko = require('./curl/knockout-3.4.0.js');
 const Q = require('q');
 
-var csscript = ko.observable('');
+// var csscript = ko.observable('');
 var go = () => { ipc.send('go', csscript()); };
 
-Q.nfbind(fs.readFile)('./dotnet/Program.cs.003', 'utf8').then(e => {csscript(e)});
+var editorOptions = { lineNumbers: true};
+var textArea = document.getElementsByTagName('textarea')[0];
+var editor = CodeMirror.fromTextArea(textArea, editorOptions);
+
+Q.nfbind(fs.readFile)('./dotnet/Program.cs.003', 'utf8').then(e => {
+    // csscript(e)
+    alert(e);
+    editor.setValue(e);
+    editor.refresh();
+});
 
 ipc.on('on-result', function(event, arg) {
   console.log(arg);
@@ -17,7 +26,7 @@ ipc.on('on-result', function(event, arg) {
 function QueryModel() {
     var self = this;
     self.go = go
-    self.csscript = csscript;
+    // self.csscript = csscript;
 }
 
 ko.applyBindings(new QueryModel(), document.getElementsByTagName('body')[0]);

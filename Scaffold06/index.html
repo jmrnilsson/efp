@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="./curl/Skeleton-2.0.4/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./curl/Skeleton-2.0.4/css/skeleton.css">
+    <link rel="stylesheet" href="./node_modules/codemirror/lib/codemirror.css">
     <link rel="stylesheet" type="text/css" href="./app.css">
   </head>
   <body>
@@ -18,21 +19,27 @@
             <div class="three columns"><input type="button" value="Times"></div>
         </div>
         <div class="row">
-            <div class="twelwe columns">
-                <textarea name="Text1" cols="90" rows="27" data-bind="textInput: csscript"></textarea>
-                <p>
-                    <input type="button" value="Go" data-bind="click: go" class="button-primary">
-                    <ul>
-                        <li>Node: <script>document.write(process.versions.node)</script></li>
-                        <li>Chromium: <script>document.write(process.versions.chrome)</script></li>
-                        <li>Electron: <script>document.write(process.versions.electron)</script></li>
-                    </ul>
-                </p>
+            <div class="twelwe columns" id="code">
+                <!-- <textarea name="Text1" cols="90" rows="27" data-bind="textInput: csscript"></textarea> -->
+                <textarea name="Text1"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="two columns">
+                <input type="button" value="Go" data-bind="click: go" class="button-primary">
+            </div>
+            <div class="ten columns">
+                <ul>
+                    <li>Node: <script>document.write(process.versions.node)</script></li>
+                    <li>Chromium: <script>document.write(process.versions.chrome)</script></li>
+                    <li>Electron: <script>document.write(process.versions.electron)</script></li>
+                </ul>
             </div>
         </div>
 
     </div>
     <script src="./curl/knockout-3.4.0.js"></script>
+    <script src="./node_modules/codemirror/lib/codemirror.js"></script>
     <script src="./view.js"></script>
 
   </body>

@@ -60,4 +60,3 @@ run:
 	@ echo "Running"
 	# @ curl -L https://fonts.googleapis.com/css?family=Raleway:400,300,600 > ./curl/raleway.css
 	@ npm start
-
