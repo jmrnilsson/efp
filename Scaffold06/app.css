@@ -2,19 +2,32 @@ body {
     background-color: #F1F1F1;
 }
 
-/* Skeleton overrides */
+/* end skeleton overrides */
 table {
     background-color: white;
     border-radius:5px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
-    margin: 0px 10px, 0px, 20px;
+    /* margin: 0px 10px, 0px, 20px; */
 }
 th, td {
-    padding: 4px 5px;
+    padding: 10px 10px 10px 10px;
+    /* padding: 10px 20px; */
     text-align: center;
     font-size: 85%;
 }
+
+table#js-table th:first-child,
+table#js-table td:first-child {
+    padding-left: 10px;
+}
+
+
+table#js-table th:last-child,
+table#js-table td:last-child {
+    padding-right: 10px;
+}
+/* end skeleton overrides */
 
 .container {
     max-width: 100%;

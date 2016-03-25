@@ -24,6 +24,7 @@ function run() {
 Q.nfbind(fs.readFile)('./dotnet/Program.cs.003', 'utf8').then(e => {
     editor.setValue(e);
     editor.refresh();
+    window.scrollTo(0, 0);
 });
 
 ipc.on('on-result', (event, args) => {
