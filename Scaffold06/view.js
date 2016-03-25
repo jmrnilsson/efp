@@ -28,29 +28,30 @@ Q.nfbind(fs.readFile)('./dotnet/Program.cs.003', 'utf8').then(e => {
 
 ipc.on('on-result', function(event, args) {
     console.log(args);
-    let index = -1;
+    let index = 0;
     let dbHeaders = {};
     let dbRows = [];
-    for (var i = 0; i < args; i++) {
+    for (var i = 0; i < args.length; i++) {
+        var row = [];
         for(var attr in args[i]) {
-            if (args.hasOwnProperty(attr)) {
-                if (!headers.hasOwnProperty(attr)) {
-                    headers[attr] = index++;
+            if (Object.prototype.hasOwnProperty.call(args[i], attr)) {
+                if (!Object.prototype.hasOwnProperty.call(dbHeaders, attr)) {
+                    dbHeaders[attr] = index++;
                 }
-                var row = [];
-                row[headers[attr]] = args[i][attr];
-                dbRows.push(row);
+                row[dbHeaders[attr]] = args[i][attr];
             }
         }
+        dbRows.push(row);
     }
     rows.removeAll();
     headers.removeAll();
     dbRows.forEach(r => rows.push(r));
-    for (var i = 0; i < dbHeaders.length; i++) {
+    var len = Object.getOwnPropertyNames(dbHeaders).length;
+    for (var i = 0; i < len; i++) {
         for(var attr in dbHeaders) {
-            if (arg.hasOwnProperty(attr)) {
-                if (attr === i) {
-                    headers.push(dbHeaders[attr]);
+            if (Object.prototype.hasOwnProperty.call(dbHeaders, attr)) {
+                if (dbHeaders[attr] === i) {
+                    headers.push(attr);
                 }
             }
         }

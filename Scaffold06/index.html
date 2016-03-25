@@ -39,13 +39,13 @@
         <h5 id="table">Table</h5>
         <table>
             <thead>
-                <th>Head</th>
-            </thead>
-            <tbody>
+                <tr data-bind="foreach: { data: headers, as: 'header'}">
+                    <th data-bind="text: header"></th>
                 <tr>
-                    <td>
-                        a
-                    </td>
+            </thead>
+            <tbody data-bind="foreach: { data: rows, as: 'row' }">
+                <tr data-bind="foreach: { data: row, as: 'attr'}">
+                    <td data-bind="text: attr"></td>
                 <tr>
             </tbody>
         </table>
