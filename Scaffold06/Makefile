@@ -50,6 +50,11 @@ setup: clean scaffold
 ## Testing
 ######################################################
 
+.PHONY: lint
+
+lint:
+	node_modules/.bin/eslint ./*.js
+
 
 ######################################################
 ## Running
