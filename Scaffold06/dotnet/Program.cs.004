@@ -1,0 +1,28 @@
+using System;
+using System.Linq;
+using System.Diagnostics;
+using System.Collections.Generic;
+using Microsoft.Data.Entity;
+using System.Linq.Expressions;
+using Newtonsoft.Json;
+
+namespace dotnet
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            using (var db = new blogContext())
+            {
+                var query =
+                    from b in db.Blog
+                    join p in db.Post on b.BlogId equals p.BlogId
+                    select new {b.Url, p.Title, p.Content};
+
+                var result = JsonConvert.SerializeObject(query.Take(25).ToList());
+
+                Console.WriteLine(result);
+            }
+        }
+    }
+}
