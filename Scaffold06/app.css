@@ -2,16 +2,12 @@ body {
     background-color: #F1F1F1;
 }
 
-textarea, #code pre {
-    font-size: 8pt;
-
+/* #code pre*/
+.CodeMirror pre,
+.CodeMirror-linenumber
+ {
+    font-size: 7.5pt;
     font-family: Menlo, Courier New, Courier, monospace;
-    /*
-    color: lawngreen;
-    background-color: black;
-    */
-    height: initial; /* --Override Skeleton fixed height */
-
 }
 
 .container {
