@@ -5,6 +5,7 @@ const fs = require('fs');
 const ko = require('./curl/knockout-3.4.0.js');
 const Q = require('q');
 const CodeMirror = require('codemirror');
+const smooths = require('./scroll.js')
 
 let headers = ko.observableArray();
 let rows = ko.observableArray();
@@ -59,6 +60,6 @@ ipc.on('on-result', function(event, args) {
 });
 
 var el = document.getElementsByTagName('body')[0];
-var model = {run: run, headers: headers, rows: rows};
+var model = {run: run, headers: headers, rows: rows, smoothScroll: smooths.smoothScroll};
 ko.applyBindings(model, el);
 
