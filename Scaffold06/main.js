@@ -9,41 +9,23 @@ const exec = require('child_process').exec;
 
 let mainWindow;
 
-function createWindow () {
+function createWindow() {
     mainWindow = new BrowserWindow({width: 900, height: 800});
-    mainWindow.loadURL('file://' + __dirname + '/index.html');
+    mainWindow.loadURL(`file://${__dirname}/index.html`);
     mainWindow.webContents.openDevTools();
-
-  mainWindow.on('closed', function() {
-    mainWindow = null;
-  });
+    mainWindow.on('closed', () => { mainWindow = null; });
 }
 
 app.on('ready', createWindow);
-app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
-});
+app.on('window-all-closed', () => { if (process.platform !== 'darwin') app.quit(); });
 
-app.on('activate', function () {
-    if (mainWindow === null) {
-        createWindow();
-    }
-});
+app.on('activate', () => { if (mainWindow === null) createWindow(); });
 
-ipcMain.on('go', function(event, arg) {
-    let lines = JSON.stringify(arg).replace(/"/g, '').trim().split('\\n');
-    lines.forEach(line => console.log(line));
-    console.log('Saved..');
-
+ipcMain.on('go', (event, arg) => {
     fs.writeFile('./dotnet/P0.cs', arg.replace(/\&gt;/g, '>'), (err) => {
-    if (err) throw err;
-        console.log('Execute process..');
-        exec('(cd dotnet; dnx run)', function callback(error, stdout, stderr){
-            if (stderr) {
-                console.log(stderr);
-            }
+        if (err) throw err;
+        exec('(cd dotnet; dnx run)', (error, stdout, stderr) => {
+            if (stderr) throw Error(stderr);
             console.log(stderr);
             console.log('Publishing result..');
             event.sender.send('on-result', JSON.parse(stdout));

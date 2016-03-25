@@ -12,14 +12,26 @@ namespace dotnet
     {
         public static void Main()
         {
+        	int hashLimit = 25;
+        	var rand = new Random();
             using (var db = new blogContext())
             {
-                var query =
+            	var query =
                     from b in db.Blog
                     join p in db.Post on b.BlogId equals p.BlogId
-                    select new {b.Url, p.Title, p.Content};
+                    select new {b, p};
 
-                var result = JsonConvert.SerializeObject(query.Take(25).ToList());
+                var selected = query.ToList().Select((it, i) => new
+                {
+                	index = i,
+                    seed = Math.Round(Math.Pow(i, 26 - i), 2),
+                    random = rand.Next(1024),
+                    url = it.b.Url.Substring(0, hashLimit),
+                    title = it.p.Title.Substring(0, hashLimit),
+                    content = it.p.Content.Substring(0, hashLimit)
+               	});
+
+                var result = JsonConvert.SerializeObject(selected.Take(25).ToList());
 
                 Console.WriteLine(result);
             }
