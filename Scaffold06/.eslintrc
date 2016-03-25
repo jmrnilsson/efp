@@ -9,7 +9,8 @@
     "const": 0,
     "indent": [2, 4, {"SwitchCase": 1}],
     "object-curly-spacing": 0,
-    "semi": 2
+    "semi": 2,
+    "prefer-const": [1]
 },
 "extends": "airbnb/base",
 "parserOptions": {
@@ -17,6 +18,6 @@
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
-        },
+        }
     }
 }
