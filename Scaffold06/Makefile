@@ -42,7 +42,8 @@ setup: clean scaffold
 	unzip -o Skeleton-2.0.4.zip -d ./curl/ && rm ./Skeleton-2.0.4.zip
 	curl -OL http://knockoutjs.com/downloads/knockout-3.4.0.js
 	mv knockout-3.4.0.js ./curl/
-
+	curl -OL https://fortawesome.github.io/Font-Awesome/assets/font-awesome-4.5.0.zip
+	unzip -o font-awesome-4.5.0.zip -d ./curl/ && rm ./font-awesome-4.5.0.zip
 
 
 ######################################################
@@ -60,4 +61,3 @@ run:
 	@ echo "Running"
 	# @ curl -L https://fonts.googleapis.com/css?family=Raleway:400,300,600 > ./curl/raleway.css
 	@ npm start
-

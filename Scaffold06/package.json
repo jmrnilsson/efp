@@ -12,6 +12,7 @@
   },
   "author": "jmrnilsson",
   "dependencies": {
+    "codemirror": "^5.13.2",
     "q": "^1.4.1"
   }
 }
