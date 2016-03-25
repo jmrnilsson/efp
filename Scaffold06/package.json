@@ -10,7 +10,7 @@
   "devDependencies": {
     "electron-prebuilt": "^0.36.11",
     "eslint": "^2.4.0",
-    "eslint-config-airbnb": "^5.0.1",
+    "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.2.3"
   },
   "author": "jmrnilsson",
