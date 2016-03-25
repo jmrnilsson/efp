@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using Microsoft.Data.Entity;
 using System.Linq.Expressions;
+using Newtonsoft.Json;
 
 namespace dotnet
 {
@@ -18,9 +19,9 @@ namespace dotnet
                     join p in db.Post on b.BlogId equals p.BlogId
                     select new {b.Url, p.Title, p.Content};
 
-                var results = query.Select(q => q.Content).Take(7).ToList();
+                var result = JsonConvert.SerializeObject(query.Take(25).ToList());
 
-                results.ForEach(r => Console.WriteLine(r));
+                Console.WriteLine(result);
             }
         }
     }

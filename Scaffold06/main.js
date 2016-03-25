@@ -46,7 +46,7 @@ ipcMain.on('go', function(event, arg) {
             }
             console.log(stderr);
             console.log('Publishing result..');
-            event.sender.send('on-result', stdout);
+            event.sender.send('on-result', JSON.parse(stdout));
         });
     });
 });
