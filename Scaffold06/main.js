@@ -10,15 +10,17 @@ const exec = require('child_process').exec;
 let mainWindow;
 
 function createWindow() {
+    if (mainWindow === null) {
+        createWindow();
+    }
     mainWindow = new BrowserWindow({width: 900, height: 800});
     mainWindow.loadURL(`file://${__dirname}/index.html`);
-    // mainWindow.webContents.openDevTools();
     mainWindow.on('closed', () => { mainWindow = null; });
 }
 
 app.on('ready', createWindow);
 app.on('window-all-closed', () => { if (process.platform !== 'darwin') app.quit(); });
-app.on('activate', () => { if (mainWindow === null) createWindow(); });
+app.on('activate', createWindow);
 
 ipc.on('go', (event, arg) => {
     fs.writeFile('./dotnet/P0.cs', arg.replace(/\&gt;/g, '>'), (err) => {
