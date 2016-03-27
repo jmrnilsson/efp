@@ -9,12 +9,11 @@ const smooths = require('./scroll.js');
 
 const headers = ko.observableArray();
 const rows = ko.observableArray();
-const textArea = document.getElementsByTagName('textarea')[0];
-const editorOptions = {
-    lineNumbers: true,
-    mode: 'clike',
-};
-const editor = CodeMirror.fromTextArea(textArea, editorOptions);
+const editor = (function () {
+    const el = document.getElementsByTagName('textarea')[0];
+    return CodeMirror.fromTextArea(el, { lineNumbers: true });
+}());
+
 
 function run() {
     ipc.send('go', editor.getValue());
@@ -29,30 +28,27 @@ Q.nfbind(fs.readFile)('./dotnet/Program.cs.003', 'utf8').then(e => {
 
 ipc.on('on-result', (event, args) => {
     let index = 0;
-    const dbHeaders = {};
-    const dbRows = [];
+    const keys = {};
+    const values = [];
     for (let i = 0; i < args.length; i++) {
         const row = [];
-        for (let attr in args[i]) {
-            if (Object.prototype.hasOwnProperty.call(args[i], attr)) {
-                if (!Object.prototype.hasOwnProperty.call(dbHeaders, attr)) {
-                    dbHeaders[attr] = index++;
-                }
-                row[dbHeaders[attr]] = args[i][attr];
+        const attrs = Object.getOwnPropertyNames(args[i]);
+        for (let j = 0; j < attrs.length; j++) {
+            if (!Object.prototype.hasOwnProperty.call(keys, attrs[j])) {
+                keys[attrs[j]] = index++;
             }
+            row[keys[attrs[j]]] = args[i][attrs[j]];
         }
-        dbRows.push(row);
+        values.push(row);
     }
     rows.removeAll();
     headers.removeAll();
-    dbRows.forEach(r => rows.push(r));
-    const len = Object.getOwnPropertyNames(dbHeaders).length;
-    for (let i = 0; i < len; i++) {
-        for (let attr in dbHeaders) {
-            if (Object.prototype.hasOwnProperty.call(dbHeaders, attr)) {
-                if (dbHeaders[attr] === i) {
-                    headers.push(attr);
-                }
+    values.forEach(r => rows.push(r));
+    const attrs = Object.getOwnPropertyNames(keys);
+    for (let i = 0; i < attrs.length; i++) {
+        for (let j = 0; j < attrs.length; j++) {
+            if (keys[attrs[j]] === i) {
+                headers.push(attrs[j]);
             }
         }
     }
