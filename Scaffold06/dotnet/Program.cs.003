@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Microsoft.Data.Entity;
 using System.Linq.Expressions;
 using Newtonsoft.Json;
+using System.Dynamic;
 
 namespace dotnet
 {
@@ -21,7 +22,9 @@ namespace dotnet
                     join p in db.Post on b.BlogId equals p.BlogId
                     select new {b, p};
 
-                var selected = query.ToList().Select((it, i) => new
+                dynamic all = new ExpandoObject();
+                all.expression = query.Expression.ToString();
+                all.result = query.Take(25).ToList().Select((it, i) => new
                 {
                 	index = i,
                     seed = Math.Round(Math.Pow(i, 26 - i), 2),
@@ -29,9 +32,9 @@ namespace dotnet
                     url = it.b.Url.Substring(0, hashLimit),
                     title = it.p.Title.Substring(0, hashLimit),
                     content = it.p.Content.Substring(0, hashLimit)
-               	});
+               	}).ToList();
 
-                var result = JsonConvert.SerializeObject(selected.Take(25).ToList());
+                var result = JsonConvert.SerializeObject(all);
 
                 Console.WriteLine(result);
             }

@@ -7,6 +7,7 @@ const Q = require('q');
 const CodeMirror = require('codemirror');
 const smooths = require('./scroll.js');
 
+const expression = ko.observable();
 const headers = ko.observableArray();
 const rows = ko.observableArray();
 const editor = (function () {
@@ -27,17 +28,19 @@ Q.nfbind(fs.readFile)('./dotnet/Program.cs.003', 'utf8').then(e => {
 });
 
 ipc.on('on-result', (event, args) => {
+    expression(args.expression);
+    const result = args.result;
     let index = 0;
     const keys = {};
     const values = [];
-    for (let i = 0; i < args.length; i++) {
+    for (let i = 0; i < result.length; i++) {
         const row = [];
-        const attrs = Object.getOwnPropertyNames(args[i]);
+        const attrs = Object.getOwnPropertyNames(result[i]);
         for (let j = 0; j < attrs.length; j++) {
             if (!Object.prototype.hasOwnProperty.call(keys, attrs[j])) {
                 keys[attrs[j]] = index++;
             }
-            row[keys[attrs[j]]] = args[i][attrs[j]];
+            row[keys[attrs[j]]] = result[i][attrs[j]];
         }
         values.push(row);
     }

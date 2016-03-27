@@ -17,11 +17,11 @@
         <ul class="navbar-list">
             <li class="navbar-item"><a class="navbar-link" href="#">Database</a></li>
             <li class="navbar-item"><a class="navbar-link" href="#" data-bind="click: smoothScroll('query');">Query</a></li>
-            <li class="navbar-item"><a class="navbar-link" href="#" data-bind="click: smoothScroll('table');">Table</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#" data-bind="click: smoothScroll('query');">Query</a></li>
+            <li class="navbar-item"><a class="navbar-link" href="#" data-bind="click: smoothScroll('expression');">Expression</a></li>
             <li class="navbar-item"><a class="navbar-link" href="#intro">Chart</a></li>
             <li class="navbar-item"><a class="navbar-link" href="#intro">SQL</a></li>
             <li class="navbar-item"><a class="navbar-link" href="#intro">IL</a></li>
-            <li class="navbar-item"><a class="navbar-link" href="#intro">Expression</a></li>
             <li class="navbar-item"><a class="navbar-link" href="#intro">Perf</a></li>
             <li class="navbar-item"><a class="navbar-link" href="#intro">About</a></li>
         </ul>
@@ -49,6 +49,10 @@
                 <tr>
             </tbody>
         </table>
+
+        <br>
+        <h5 id="expression">Expression</h5>
+        <code data-bind="text: expression"></code>
 
     </div>
 
