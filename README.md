@@ -68,13 +68,12 @@ Example..
 
 + http://electron.atom.io/docs/v0.37.2/api/ipc-main/
 
-## 06 
+## 06 - cleanup, linting, styling
 
     dnvm use 1.0.0-rc1-update1 -r coreclr
     make setup
     make run
     
-## 07 - styling
 + http://www.w3schools.com/css/tryit.asp?filename=trycss_table_padding
 
 ### Goals: 
