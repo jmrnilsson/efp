@@ -2,19 +2,39 @@ body {
     background-color: #F1F1F1;
 }
 
-/* end skeleton overrides */
+/* end skeleton overrides
 table {
     background-color: white;
     border-radius:5px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
-    /* margin: 0px 10px, 0px, 20px; */
 }
 th, td {
     padding: 10px 10px 10px 10px;
-    /* padding: 10px 20px; */
     text-align: center;
     font-size: 85%;
+}
+
+*/
+
+table, td, th {
+    background-color: white;
+    border: 1px solid #ddd;
+    /* text-align: left; */
+    font-size: 7.5pt;
+    font-family: Menlo, Courier New, Courier, monospace;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    background-color: #F8F8F8
 }
 
 table#js-table th:first-child,

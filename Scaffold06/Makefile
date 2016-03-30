@@ -11,29 +11,28 @@ SHELL=bash
 .PHONY: clean setup scaffold
 
 scaffold: db/blog.db
+	echo 'Generating scaffold from database schema..'
 	rm -f ./dotnet/P0.cs
 	(cd dotnet; dnx ef dbcontext scaffold Filename=$(realpath ./db/blog.db) EntityFramework.Sqlite)
 
 
 db/blog.db:
+	echo 'Copying database..'
 	rm -rf ./db/
 	mkdir ./db
 	cp ../02-sqlite/blog.db ./db/
 
 
 clean:
+	echo 'Cleaning..'
 	rm -rf ./curl
-	rm -rf ./node_modules
 	mkdir ./curl
-	rm -f __EFMigrationsHistory.cs
-	rm -f blogContext.cs
-	rm -f ModelContext.cs
-	rm -f Blog.cs
-	rm -f Post.cs
-	rm -f ./db/blog.db;
+	rm -rf ./node_modules
+	rm -rf ./dotnet/*.cs
 
 
 setup: clean scaffold
+	echo 'Getting dependencies..'
 	dnu restore
 	cp ./dotnet/Program.cs.003 ./dotnet/P0.cs
 	(cd ./dotnet/; dnu build --quiet)
@@ -53,6 +52,7 @@ setup: clean scaffold
 .PHONY: lint
 
 lint:
+	echo 'Executing linter..'
 	node_modules/.bin/eslint ./*.js
 
 
@@ -63,6 +63,6 @@ lint:
 .PHONY: run
 
 run:
-	@ echo "Running"
+	@ echo 'Running..'
 	# @ curl -L https://fonts.googleapis.com/css?family=Raleway:400,300,600 > ./curl/raleway.css
 	@ npm start
