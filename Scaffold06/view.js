@@ -4,7 +4,8 @@ const ipc = require('electron').ipcRenderer;
 const fs = require('fs');
 const ko = require('./curl/knockout-3.4.0.js');
 const Q = require('q');
-const CodeMirror = require('codemirror');
+const CodeMirror = require('codemirror/lib/codemirror');
+const CodeMirrorMode = require('codemirror/mode/clike/clike');
 const smooths = require('./scroll.js');
 
 const expression = ko.observable();
@@ -12,7 +13,7 @@ const headers = ko.observableArray();
 const rows = ko.observableArray();
 const editor = (function () {
     const el = document.getElementsByTagName('textarea')[0];
-    return CodeMirror.fromTextArea(el, { lineNumbers: true });
+    return CodeMirror.fromTextArea(el, { lineNumbers: true, mode: 'text/x-csharp' });
 }());
 
 
