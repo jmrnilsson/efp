@@ -73,6 +73,9 @@ Example..
     dnvm use 1.0.0-rc1-update1 -r coreclr
     make setup
     make run
+    
+## 07 - styling
++ http://www.w3schools.com/css/tryit.asp?filename=trycss_table_padding
 
 ### Goals: 
 + Binding
