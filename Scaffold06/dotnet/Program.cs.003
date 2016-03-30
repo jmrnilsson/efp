@@ -13,7 +13,6 @@ namespace dotnet
     {
         public static void Main()
         {
-        	int hashLimit = 18;
         	var rand = new Random();
             using (var db = new blogContext())
             {
@@ -29,9 +28,9 @@ namespace dotnet
                 	index = i,
                     seed = Math.Round(Math.Pow(i, 26 - i), 2),
                     random = rand.Next(1024),
-                    url = it.b.Url.Substring(0, hashLimit),
-                    title = it.p.Title.Substring(0, hashLimit),
-                    content = it.p.Content.Substring(0, hashLimit)
+                    url = it.b.Url,
+                    title = it.p.Title,
+                    content = it.p.Content
                	}).ToList();
 
                 var result = JsonConvert.SerializeObject(all);
