@@ -77,6 +77,8 @@ Example..
 ## 07 - dotnet core
 
 ## 08 - db generation + scaffolding
+
+## 09 - omnisharp-roslyn
     
 + http://www.w3schools.com/css/tryit.asp?filename=trycss_table_padding
 
