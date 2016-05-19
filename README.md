@@ -74,6 +74,10 @@ Example..
     make setup
     make run
     
+## 07 - dotnet core
+
+## 08 - db generation + scaffolding
+    
 + http://www.w3schools.com/css/tryit.asp?filename=trycss_table_padding
 
 ### Goals: 
