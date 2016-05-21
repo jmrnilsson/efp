@@ -73,24 +73,26 @@ Example..
     dnvm use 1.0.0-rc1-update1 -r coreclr
     make setup
     make run
-    
-## 07 - dotnet core
+
+## 07 - dotnet core + npsql
+
+## 08 - dotnet core + ef command tools
 
 ## 08 - db generation + scaffolding
 
 ## 09 - omnisharp-roslyn
-    
+
 + http://www.w3schools.com/css/tryit.asp?filename=trycss_table_padding
 
-### Goals: 
+### Goals:
 + Binding
 + Code structure
 + Slight clean-up
 + Interop
-+ make setup, clean, run, scaffold (temporary) 
++ make setup, clean, run, scaffold (temporary)
 + curl (or wget or git clone) unmanaged external dependencies
 
-### Libs and tools 
+### Libs and tools
 + Skeleton
 + ~~Rivets~~
 + Vue.js
