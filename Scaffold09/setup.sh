@@ -1,3 +1,5 @@
+#!/bin/sh -x
+ls . | grep -v Program.cs | grep .cs | xargs rm
 rm chinookContext.cs
 dotnet restore;
 dotnet build;
