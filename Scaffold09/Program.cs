@@ -13,14 +13,12 @@ using System.Text;
 
 namespace Scaffold09
 {
-    //Program.batch = 5000;
-    //optionsBuilder.UseNpgsql("Host=localhost;Username=__;Password=;Database=chin");
-    // optionsBuilder.UseSqlite("Filename=/Users/martinnilsson/devwork/efpad/Scaffold09/chin.db");
     public class Program
     {
         public static void Main()
         {
-            dynamic result;
+            dynamic result = null;
+            /* comment using-statement while scaffolding */
             using (var db = new chinookContext())
             {
                 var query =
@@ -43,6 +41,7 @@ namespace Scaffold09
                     Newtonsoft.Json.Formatting.Indented
                 );
             }
+            /* comment-end */
             Console.WriteLine(result);
         }
     }
