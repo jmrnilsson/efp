@@ -6,3 +6,5 @@
 Scaffold06/P0.cs
 **/curl
 Scaffold06/**/P0.cs
+**/obj/**
+**/*.db-journal
