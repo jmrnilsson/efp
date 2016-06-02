@@ -29,17 +29,9 @@ namespace Scaffold09
                     {
                         album = a.Title,
                         artist = ar.Name,
-                        tracks = string.Join
-                        (
-                            ", ", a.Track.Select(t => t.Name).Take(3)
-                        )
+                        tracks = string.Join(", ", a.Track.Select(t => t.Name).Take(3))
                     };
-
-                result = JsonConvert.SerializeObject
-                (
-                    query.Take(5).ToList(),
-                    Newtonsoft.Json.Formatting.Indented
-                );
+                result = JsonConvert.SerializeObject(query.Take(5).ToList(), Formatting.Indented);
             }
             /* comment-end */
             Console.WriteLine(result);
