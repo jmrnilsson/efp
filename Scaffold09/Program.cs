@@ -11,36 +11,39 @@ using System.Reflection;
 using System.Collections;
 using System.Text;
 
-namespace dotnet
+namespace Scaffold09
 {
-/*  public class ChinookContext : DbContext
-  {
-      protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-      {
-          //Program.batch = 5000;
-          //optionsBuilder.UseNpgsql("Host=localhost;Username=martinnilsson;Password=;Database=stats");
-          optionsBuilder.UseSqlite("Filename=/Users/martinnilsson/devwork/efpad/Scaffold09/stats.db");
-      }
-    }
-*/
+    //Program.batch = 5000;
+    //optionsBuilder.UseNpgsql("Host=localhost;Username=__;Password=;Database=chin");
+    // optionsBuilder.UseSqlite("Filename=/Users/martinnilsson/devwork/efpad/Scaffold09/chin.db");
     public class Program
     {
         public static void Main()
         {
-          /*
-            using (var db = new StatsContext())
+            dynamic result;
+            using (var db = new chinookContext())
             {
-                 var query =
-                    from b in db.Blog
-                    join p in db.Post on b.BlogId equals p.BlogId
-                    select new {b.Url, p.Title, p.Content};
+                var query =
+                    from a in db.Album
+                    join ar in db.Artist on a.ArtistId equals ar.ArtistId
+                    where ar.Name.StartsWith("A")
+                    select new
+                    {
+                        album = a.Title,
+                        artist = ar.Name,
+                        tracks = string.Join
+                        (
+                            ", ", a.Track.Select(t => t.Name).Take(3)
+                        )
+                    };
 
-                var result = JsonConvert.SerializeObject(query.Take(25).ToList());
-
+                result = JsonConvert.SerializeObject
+                (
+                    query.Take(5).ToList(),
+                    Newtonsoft.Json.Formatting.Indented
+                );
             }
-            */
-            Console.WriteLine("a");
-
+            Console.WriteLine(result);
         }
     }
 }
