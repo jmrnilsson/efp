@@ -11,8 +11,6 @@
     <link rel="stylesheet" type="text/css" href="./app.css">
   </head>
   <body>
-
-
     <nav class="navbar floating-menu">
         <ul class="navbar-list">
             <li class="navbar-item"><a class="navbar-link" href="#">Database</a></li>
@@ -26,15 +24,12 @@
             <li class="navbar-item"><a class="navbar-link" href="#intro">About</a></li>
         </ul>
     </nav>
-
     <br style="padding-top: 5rem;">
     <div style="margin: 8rem 3rem 1.5rem 3rem">
-
         <h5 id="query">Query</h5>
         <input type="button" value="Run" class="button-primary" data-bind="click: run">
         <input type="button" value="Verify">
         <textarea name="Text1"></textarea>
-
         <br>
         <h5 id="table">Table</h5>
         <table id="js-table">
@@ -49,23 +44,11 @@
                 <tr>
             </tbody>
         </table>
-
         <br>
         <h5 id="expression">Expression</h5>
         <code data-bind="text: expression" style="white-space: pre-wrap; max-width: 350px;"></code>
-
     </div>
-
-<!--<button type="button">
-    <span class="fa-stack">
-        <i class="fa fa-square fa-stack-2x"></i>
-        <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
-    </span>
-    Query
-</button>-->
-
     <script src="./curl/knockout-3.4.0.js"></script>
     <script src="./view.js"></script>
-
   </body>
 </html>
