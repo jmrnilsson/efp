@@ -76,9 +76,14 @@ Example..
 
 ## 07 - dotnet core + npsql
 
-## 08 - dotnet core + ef command tools
+## 08 - dotnet core ~~+ ef command tools~~
 
-## 08 - db generation + scaffolding
+## 09 - db generation + scaffolding
+Third experiment with scaffolding with dotnetcore and efcore (**.sqlite.design) with MIT db example
+
+    sh clean.sh
+    sh setup.sh
+    dotnet run
 
 ## 09 - omnisharp-roslyn
 
